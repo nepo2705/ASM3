@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h3>Todo-Tracker</h3>
+    <p>Organise todo-tasks</p>
+    <a href="{{ url_for('regis') }}">Register</a>
+    <a href="{{url_for('login')}}">Login</a>
+</div>
+
+{% endblock %}

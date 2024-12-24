@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <ul>
+        {% for todo in todos %}
+        <li>
+            {{ todo.category }}: {{ todo.description }}
+            (Status: {{ todo.status }}, Created: {{ todo.date_created }})
+            <button type="submit">Edit</button>
+            <form method="POST" action="{{url_for('delete')}}"> <!-- khi an gui thong bao se gui thong tin cua todo task den route delete -->
+                <input type="hidden" name="category" value="{{todo.category}}"> <!-- hidden de truyen du lieu-->
+                <input type="hidden" name="description" value="{{todo.description}}">
+                <input type="hidden" name="status" value="{{todo.status}}">
+                <input type="hidden" name="date_created" value="date_created">
+                <button type="submit">Delete</button><button type="submit">Delete</button>                
+            </form>
+            
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{url_for(add)}}">Add New Todo</a></p>
+</div>
+
+{% endblock %}
